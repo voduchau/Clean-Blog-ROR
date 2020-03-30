@@ -12,7 +12,7 @@ EDIT BLOG
     </ul>
   </div>
 <% end %>
-<%= form_with(model: @blog, url: blog_path, method: "patch", local: true) do |form| %>
+<%= form_with(model: @blog, url: blog_path, method: "patch", local: true, :html => {:multipart => true}) do |form| %>
 <p>
   <%= form.label :title %><br>
   <%= form.text_field :title %>
@@ -22,7 +22,9 @@ EDIT BLOG
   <%= form.label :body %><br>
   <%= form.text_area :body %>
 </p>
-
+<p>
+  <%= form.file_field :image %>
+</p>
 <p>
   <%= form.submit %>
 </p>

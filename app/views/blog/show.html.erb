@@ -76,6 +76,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <button type="button" class="btn btn-secondary"><%= link_to "EDIT BLOG", edit_blog_path %></button>
+            <%= image_tag @blog.image_url.to_s %>
             <h2 class="section-heading"><%= @blog.title%></h2>
             <p><%= @blog.body%></p>
           <a href="#">
