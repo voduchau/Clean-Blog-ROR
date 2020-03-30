@@ -26,6 +26,10 @@ EDIT BLOG
   <%= form.file_field :image %>
 </p>
 <p>
+  <%= form.label :remote_image_url , "upload by image URL" %>
+  <%= form.text_field :remote_image_url  %>
+</p>
+<p>
   <%= form.submit %>
 </p>
 
