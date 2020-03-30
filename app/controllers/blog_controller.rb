@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
-    before_action :find_params , only: [:show, :edit, :update]
+    before_action :find_params , only: [:show, :edit, :update, :destroy]
     def index
-        @blog = Blog.all
+        @blogs = Blog.all
     end
 
     def new
@@ -19,15 +19,23 @@ class BlogController < ApplicationController
     def create
         @blog = Blog.new(blog_params)
         if @blog.save
-            redirect_to blog_path(@blog.id)
+            redirect_to blog_path(@blog)
         else
             render :new
         end
     end
 
     def update
-        @blog.update(blog_params)
-        redirect_to @blog
+        if @blog.update(blog_params)
+            redirect_to @blog
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @blog.destroy
+        redirect_to blog_index_path
     end
 
     private

@@ -75,10 +75,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <button type="button" class="btn btn-primary"><%= link_to "EDIT BLOG", edit_blog_path %></button>
+            <button type="button" class="btn btn-secondary"><%= link_to "EDIT BLOG", edit_blog_path %></button>
             <h2 class="section-heading"><%= @blog.title%></h2>
             <p><%= @blog.body%></p>
           <a href="#">
+            <button type="button" class="btn btn-danger"><%= link_to "DELETE BLOG", @blog, method: :delete, data: { confirm: 'Are you sure?' } %></button>
             <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
           </a>
           <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
