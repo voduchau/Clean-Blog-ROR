@@ -20,13 +20,11 @@
               </div>
             <h2 class="section-heading"><%= @blog.title%></h2>
             <p><%= @blog.body%></p>
-          <p class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</p>
-
-          <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-          <p>Placeholder text by
-            <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
-            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+            <strong>Comment:</strong>
+            <% @blog.comments.each do |cmt| %>
+              <p><b><%= cmt.commenter%> </b>: <%= cmt.body%></p>
+            <% end %>
+            <%= render "comments/form", :locals => { @blog => @blog } %>
         </div>
       </div>
     </div>
