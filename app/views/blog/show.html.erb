@@ -1,37 +1,26 @@
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>Man must explore, and this is exploration at its greatest</h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-            <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2019</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <!-- Post Content -->
   <article>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <button type="button" class="btn btn-secondary"><%= link_to "EDIT BLOG", edit_blog_path %></button>
-            <%= image_tag @blog.image_url.to_s %>
+            <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+            <% end %>
+              <div class="row">
+                <div class="col-sm-2">
+                  <%= link_to "EDIT BLOG",edit_blog_path, class: "btn btn-secondary" %>
+                </div>
+                <div class="col-sm-8">
+                  <%= image_tag @blog.image_url.to_s %>
+                </div>
+                <div class="col-sm-2">
+                  <td><%= button_to 'Destroy', @blog, class: "btn btn-secondary", :confirm => 'Are you sure?',
+                                                   :method => :delete %></td>
+                </div>
+              </div>
             <h2 class="section-heading"><%= @blog.title%></h2>
             <p><%= @blog.body%></p>
-          <a href="#">
-            <button type="button" class="btn btn-danger"><%= link_to "DELETE BLOG", @blog, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-            <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
-          </a>
-          <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-
-          <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
+          <p class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</p>
 
           <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
 
@@ -42,11 +31,3 @@
       </div>
     </div>
   </article>
-
-  <hr>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
