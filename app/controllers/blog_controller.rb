@@ -34,8 +34,12 @@ class BlogController < ApplicationController
     end
 
     def destroy
-        @blog.destroy
-        redirect_to blog_index_path
+        if @blog.destroy
+            redirect_to root_path
+        else
+            flash[:notice] = "Post successfully created"
+            render :show    
+        end
     end
 
     private
