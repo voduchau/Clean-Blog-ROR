@@ -22,12 +22,13 @@
       </form>
 
 
-      <div class="btn-group dropleft">
+      <div class="btn-group">
         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-          Action
+          Account
         </button>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu dropdown-menu-left">
           <% if user_signed_in? %>
+              <div><%= current_user.email%></>
               <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item"  %>
               <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %>
           <% else %>
