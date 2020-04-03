@@ -14,7 +14,7 @@
                   <%= image_tag @blog.image_url.to_s %>
                 </div>
                 <div class="col-sm-2">
-                  <td><%= button_to 'Destroy', @blog, class: "btn btn-secondary", :confirm => 'Are you sure?',
+                  <td><%= button_to 'Delete Blog', @blog, class: "btn btn-secondary", :confirm => 'Are you sure?',
                                                    :method => :delete %></td>
                 </div>
               </div>
@@ -23,7 +23,7 @@
             <strong>Comment:</strong>
             <% @blog.comments.each do |cmt| %>
               <p><b><%= cmt.commenter%> </b>: <%= cmt.body%></p>
-              <p><%= button_to 'Destroy', blog_comment_path(@blog,cmt), class: "btn btn-secondary", :confirm => 'Are you sure?',
+              <p><%= button_to 'Delete comment', blog_comment_path(@blog,cmt), class: "btn btn-secondary", :confirm => 'Are you sure?',
                 :method => :delete %></p>
             <% end %>
             <%= render "comments/form", :locals => { @blog => @blog } %>

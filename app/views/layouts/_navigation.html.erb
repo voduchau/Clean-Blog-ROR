@@ -20,5 +20,26 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+
+
+      <div class="btn-group dropleft">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+          Action
+        </button>
+        <div class="dropdown-menu">
+          <% if user_signed_in? %>
+              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item"  %>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %>
+          <% else %>
+              <%= link_to "Login",new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </div>
+      
+
+      <% if session[:user_id] %>
+        <button type="button" class="btn btn-success"><%= session[:user_id]%></button>
+      <% end %>
+
     </div>
   </nav>
