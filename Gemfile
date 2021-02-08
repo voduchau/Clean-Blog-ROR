@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem "bcrypt"
 gem 'devise'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
